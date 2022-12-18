@@ -21,3 +21,6 @@ aur_install yaourt  # package-query required
 yaourt -S --noconfirm xorg xorg-xinit awesome mpd ncmpcpp rxvt-unicode-patched light gnome-icon-theme qbittorrent telegram-desktop wicd-patched wicd-gtk xlockmore
 
 sudo systemctl enable wicd sshd
+
+# screen locker:
+# https://tools.suckless.org/slock/
