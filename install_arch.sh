@@ -18,8 +18,8 @@ pacman -S --noconfirm yajl
 aur_install package-query  # yajl required
 aur_install yaourt  # package-query required
 
-yaourt -S --noconfirm xorg xorg-xinit awesome mpd ncmpcpp rxvt-unicode-patched light gnome-icon-theme qbittorrent telegram-desktop wicd-patched wicd-gtk xlockmore
-
+yaourt -S --noconfirm xorg xorg-xinit awesome mpd ncmpcpp rxvt-unicode-patched light gnome-icon-theme qbittorrent telegram-desktop wicd-patched wicd-gtk
+# cmst
 sudo systemctl enable wicd sshd
 
 # screen locker:
