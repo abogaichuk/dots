@@ -29,3 +29,7 @@ application/xhtml_xml=google-chrome.desktop;chromium.desktop;firefox.desktop
 image/webp=google-chrome.desktop;chromium.desktop;firefox.desktop
 text/html=google-chrome.desktop;chromium.desktop;firefox.desktop
 text/xml=google-chrome.desktop;chromium.desktop;firefox.desktop
+x-scheme-handler/webcal=google-chrome.desktop
+x-scheme-handler/rvmm=rvmm-scheme.desktop
+x-scheme-handler/discord-472158403830218762=discord-472158403830218762.desktop
+x-scheme-handler/msteams=teams.desktop

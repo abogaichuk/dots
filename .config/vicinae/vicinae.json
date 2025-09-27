@@ -1,0 +1,16 @@
+{
+  "faviconService": "twenty",
+  "font": {
+    "size": 10
+  },
+  "popToRootOnClose": false,
+  "rootSearch": {
+    "searchFiles": true
+  },
+  "theme": {},
+  "window": {
+    "csd": true,
+    "opacity": 0.95,
+    "rounding": 0
+  }
+}

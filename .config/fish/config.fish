@@ -30,23 +30,24 @@ if status --is-interactive
         curl -#Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
         . ~/.config/fish/functions/fisher.fish
     end
-    fisher fzf tuvistavie/fish-fastdir 2>/dev/null
-    if  not type -q fzf
-        if type -q __fzf_install
-            __fzf_install
-        else
-            # removed from last versions of fish extension?
-            # read -l -p 'echo "fzf not found. Install locally? [y/N]"' install_fzf
-            # For some reason not work under tmux for old fish shells (2.3.1 for example)
-            set -l install_fzf "y"
-            if [ "$install_fzf" = "y" ]
-                git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-                # NOTE: interactive prompt display nothing for some reason
-                # (in case some arguments would be added)
-                ~/.fzf/install --completion --key-bindings --no-update-rc
-            end
-        end
-    end
+    # make this dynamically if plugin not found
+    # fisher install jethrokuan/fzf tuvistavie/fish-fastdir 2>/dev/null
+    # if  not type -q fzf
+    #     if type -q __fzf_install
+    #         __fzf_install
+    #     else
+    #         # removed from last versions of fish extension?
+    #         # read -l -p 'echo "fzf not found. Install locally? [y/N]"' install_fzf
+    #         # For some reason not work under tmux for old fish shells (2.3.1 for example)
+    #         set -l install_fzf "y"
+    #         if [ "$install_fzf" = "y" ]
+    #             git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    #             # NOTE: interactive prompt display nothing for some reason
+    #             # (in case some arguments would be added)
+    #             ~/.fzf/install --completion --key-bindings --no-update-rc
+    #         end
+    #     end
+    # end
 end
 
 set -g FZF_LEGACY_KEYBINDINGS 0
@@ -199,3 +200,4 @@ function _mp3_convert_cp1251
 end
 alias _https_update_time "tlsdate -v -H mail.google.com"
 alias _urxvt_terminus_fontsize "printf '\33]50;%s%d\007' 'xft:xos4 Terminus:size='"
+alias vim=nvim

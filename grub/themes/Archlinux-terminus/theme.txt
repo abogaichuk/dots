@@ -10,8 +10,8 @@ message-font: "Terminus Regular 16"
 message-color: "#FFFFFF"
 message-bg-color: "#f6f6f6"
 desktop-color: "#000000"
-desktop-image: "thinkpad_background.png"
-terminal-box: "menu_bkg_*.png"
+desktop-image: "background.png"
+# terminal-box: "menu_bkg_*.png"
 terminal-font: "Terminus Regular 16"
 
 # Show the boot menu
