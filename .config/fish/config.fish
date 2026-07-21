@@ -1,11 +1,11 @@
 # startx at login
 if status --is-login
     if [ -z "$DISPLAY" -a "$XDG_VTNR" = 1 -a -x (which startx) ]
-        exec startx -- -keeptty
+      mkdir -p ~/.local/share/xorg
+      echo "...running startx, log file: ~/.local/share/xorg/startx.log"
+      exec startx -- -keeptty > ~/.local/share/xorg/startx.log 2>&1
     end
 end
-
-# fzf_key_bindings
 
 # Ubuntu ppa:
 # https://launchpad.net/~fish-shell/+archive/ubuntu/release-3
@@ -30,23 +30,24 @@ if status --is-interactive
         curl -#Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
         . ~/.config/fish/functions/fisher.fish
     end
-    fisher fzf tuvistavie/fish-fastdir 2>/dev/null
-    if  not type -q fzf
-        if type -q __fzf_install
-            __fzf_install
-        else
-            # removed from last versions of fish extension?
-            # read -l -p 'echo "fzf not found. Install locally? [y/N]"' install_fzf
-            # For some reason not work under tmux for old fish shells (2.3.1 for example)
-            set -l install_fzf "y"
-            if [ "$install_fzf" = "y" ]
-                git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-                # NOTE: interactive prompt display nothing for some reason
-                # (in case some arguments would be added)
-                ~/.fzf/install --completion --key-bindings --no-update-rc
-            end
-        end
-    end
+    # make this dynamically if plugin not found
+    # fisher install jethrokuan/fzf tuvistavie/fish-fastdir 2>/dev/null
+    # if  not type -q fzf
+    #     if type -q __fzf_install
+    #         __fzf_install
+    #     else
+    #         # removed from last versions of fish extension?
+    #         # read -l -p 'echo "fzf not found. Install locally? [y/N]"' install_fzf
+    #         # For some reason not work under tmux for old fish shells (2.3.1 for example)
+    #         set -l install_fzf "y"
+    #         if [ "$install_fzf" = "y" ]
+    #             git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    #             # NOTE: interactive prompt display nothing for some reason
+    #             # (in case some arguments would be added)
+    #             ~/.fzf/install --completion --key-bindings --no-update-rc
+    #         end
+    #     end
+    # end
 end
 
 set -g FZF_LEGACY_KEYBINDINGS 0
@@ -72,6 +73,8 @@ function __virtualenv_hook --on-variable PWD --description 'Auto activate virtua
       source ./env/bin/activate.fish
   else if [ -f ./venv/bin/activate.fish -a "$VIRTUAL_ENV" != "$PWD/venv" ]
       source ./venv/bin/activate.fish
+  else if [ -f ./.venv/bin/activate.fish -a "$VIRTUAL_ENV" != "$PWD/.venv" ]
+      source ./.venv/bin/activate.fish
   else
       if not [ -z $VIRTUAL_ENV ]
           if not echo $PWD | grep -q '^'(dirname $VIRTUAL_ENV)
@@ -197,3 +200,4 @@ function _mp3_convert_cp1251
 end
 alias _https_update_time "tlsdate -v -H mail.google.com"
 alias _urxvt_terminus_fontsize "printf '\33]50;%s%d\007' 'xft:xos4 Terminus:size='"
+alias vim=nvim
