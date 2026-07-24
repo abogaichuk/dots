@@ -1,0 +1,22 @@
+{
+	"network": {
+		"interval": 10,
+		"format": "󰤨",
+		"format-ethernet": "󰈀",
+		"format-wifi": "{icon}",
+		"format-disconnected": "󰤯",
+		"format-disabled": "󰤮",
+		"format-icons": [
+			"󰤟", "󰤢", "󰤥", "󰤨"
+		],
+		"max-length": 2,
+		"min-length": 2,
+		"on-click": "cmst",
+		"on-click-right": "connmanctl disable wifi && notify-send 'Wi-Fi Disabled' -i network-wireless-off",
+		"tooltip-format": "<b>Gateway</b>: {gwaddr}",
+		"tooltip-format-ethernet": "<b>Interface</b>: {ifname}",
+		"tooltip-format-wifi": "<b>Network</b>: {essid}\n<b>IP Addr</b>: {ipaddr}/{cidr}\n<b>Strength</b>: {signalStrength}%\n<b>Frequency</b>: {frequency} GHz",
+		"tooltip-format-disconnected": "Wi-Fi Disconnected",
+		"tooltip-format-disabled": "Wi-Fi Disabled"
+	}
+}

@@ -31,6 +31,9 @@ local defaultMfact = 0.50
 -- end)
 hl.on("hyprland.start", function ()
   hl.exec_cmd("waybar & hyprpaper")
+  -- debug waybar: comment the line above, uncomment below (logs -> /tmp/waybar-boot.log)
+  -- hl.exec_cmd("waybar -l debug > /tmp/waybar-boot.log 2>&1 & hyprpaper")
+  hl.exec_cmd("systemctl --user start vicinae.service")
   -- hl.exec_cmd("walker --gapplication-service")
 end)
 
