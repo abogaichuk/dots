@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+success_interval=1800
+retry_interval=30
+
+fetch() {
+	local text tooltip
+	text=$(curl -sf --max-time 5 "https://wttr.in/?format=1") || return 1
+	tooltip=$(curl -sf --max-time 5 "https://wttr.in/?T") || return 1
+	[ -n "$text" ] && [ -n "$tooltip" ] || return 1
+	jq -nc --arg text "$text" --arg tooltip "$tooltip" '{text: $text, tooltip: $tooltip}'
+}
+
+while true; do
+	if output=$(fetch); then
+		printf '%s\n' "$output"
+		sleep "$success_interval"
+	else
+		jq -nc '{text: "🌐 N/A", tooltip: "Unable to reach wttr.in"}'
+		sleep "$retry_interval"
+	fi
+done

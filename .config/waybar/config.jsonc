@@ -29,10 +29,8 @@
 		"custom/right_div#3",
 		"clock#date",
 		"custom/right_div#4",
-		"network",
-		"bluetooth",
-		"custom/update",
-		"custom/right_div#5"
+		"custom/right_div#5",
+		"custom/weather"
 	],
 
 	"modules-right": [
@@ -41,6 +39,9 @@
 		"group/pulseaudio",
 		"custom/left_div#7",
 		"backlight",
+		"network",
+		"bluetooth",
+		"custom/update",
 		"custom/left_div#8",
 		"battery",
 		"custom/left_inv#2",

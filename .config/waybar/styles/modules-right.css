@@ -21,6 +21,13 @@
 	background-color: @backlight;
 }
 
+/* System tray (network, bluetooth, updates) */
+#network,
+#bluetooth,
+#custom-update {
+	background-color: @backlight;
+}
+
 /* Battery */
 #custom-left_div.8 {
 	background-color: @backlight;

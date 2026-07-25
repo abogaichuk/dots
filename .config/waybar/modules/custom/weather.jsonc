@@ -1,0 +1,7 @@
+{
+	"custom/weather": {
+		"exec": "~/.config/waybar/scripts/weather",
+		"return-type": "json",
+		"tooltip": true
+	}
+}
